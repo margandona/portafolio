@@ -44,6 +44,7 @@ body {
 }
 .presentation {
     display: flex;
+    flex-wrap: wrap;
     padding: 50px;
     background: linear-gradient(135deg, #5b86e5, #36d1dc);
     color: white;
@@ -52,6 +53,7 @@ body {
 .presentation__text, .presentation__image-container {
     flex: 1;
     margin: 10px;
+    min-width: 300px;
 }
 .presentation__text h1 {
     font-size: 3rem;
@@ -107,4 +109,21 @@ body {
 }
 .night-mode .presentation {
     background: linear-gradient(135deg, #34495e, #2c3e50);
+}
+
+@media (max-width: 768px) {
+    .presentation {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .presentation__text h1 {
+        font-size: 2rem;
+    }
+    .presentation__text p {
+        font-size: 1rem;
+    }
+    .presentation__links a {
+        font-size: 1.2rem;
+    }
 }
