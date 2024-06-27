@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaKuaZ | UX Design</title>
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            color: white;
+            text-align: center;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .header__logo {
+            font-size: 5rem;
+            font-family: 'Lobster', cursive;
+        }
+        .header__text {
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: typing 3s steps(30, end) forwards;
+            cursor: pointer;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; opacity: 1; }
+        }
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            z-index: 1000;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .nav__item {
+            margin: 0 15px;
+        }
+        .tooltip-inner {
+            background-color: #333;
+            color: #fff;
+        }
+        .presentation {
+            display: flex;
+            padding: 50px;
+            background: linear-gradient(135deg, #5b86e5, #36d1dc);
+            color: white;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .presentation__text, .presentation__image-container {
+            flex: 1;
+            margin: 10px;
+        }
+        .presentation__text h1 {
+            font-size: 3rem;
+        }
+        .presentation__text p {
+            font-size: 1.2rem;
+        }
+        .presentation__links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .presentation__links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .presentation__links a:hover {
+            color: #ddd;
+        }
+        .presentation__image {
+            max-width: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        .scroll-up {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .scroll-up:hover {
+            background: #555;
+        }
+        .night-mode {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+        .night-mode .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+        }
+        .night-mode .nav {
+            background: #34495e;
+            color: #ecf0f1;
+        }
+        .night-mode .presentation {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav">
+        <a class="navbar-brand" href="#">MaKuaZ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item nav__item">
+                    <a class="nav-link" href="#home">Inicio</a>
+                </li>
+                <li class="nav-item nav__item">
+                    <a class="nav-link" href="#work">Trabajos</a>
+                </li>
+                <li class="nav-item nav__item">
+                    <a class="nav-link" href="#playground">Diversión</a>
+                </li>
+                <li class="nav-item nav__item">
+                    <a class="nav-link" href="#educacion">Educación</a>
+                </li>
+                <li class="nav-item nav__item">
+                    <a class="nav-link" href="#about">Acerca de</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="header" id="home">
+        <div class="header__logo">MZ</div>
+        <p class="header__text mt-3" id="intro-text">Hola, Soy MaKuaZ.
+            <br> Que bueno que estas por acá...
+            <br>Si tienes problemas visuales haz
+            <br> clic sobre este texto.
+        </p>
+    </header>
+
+    <section class="presentation" id="presentation">
+        <div class="presentation__text">
+            <h1>Marcos Argandoña</h1>
+            <p>Soy un diseñador de productos y desarrollador web con pasión por crear una experiencia de usuario interactiva, útil y encantadora.</p>
+            <p>
+                <a href="#work" class="presentation__link">Mira Mi Trabajo</a> |
+                <a href="path/to/curriculum.pdf" class="presentation__link">Descarga mi Currículum</a> |
+                <a href="#playground" class="presentation__link">¿Quieres Jugar?</a> |
+                <a href="#educacion" class="presentation__link">Contribución en Educación</a>
+            </p>
+        </div>
+
+        
+        <div class="presentation__image-container">
+            <img src="path/to/image.jpg" alt="Marcos Argandoña" class="presentation__image">
+            <div class="presentation__links">
+                <a href="#" data-toggle="tooltip" title="Youtube"><i class="fab fa-youtube"></i></a>
+                <a href="#" data-toggle="tooltip" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" data-toggle="tooltip" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" data-toggle="tooltip" title="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" data-toggle="tooltip" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="#" data-toggle="tooltip" title="GitHub"><i class="fab fa-github"></i></a>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-up" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $('#intro-text').on('click', function() {
+                $('body').toggleClass('night-mode');
+            });
+        });
+
+        function scrollToTop() {
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
+        }
+    </script>
+</body>
+</html>
