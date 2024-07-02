@@ -60,36 +60,46 @@ $(document).ready(function () {
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-8">
-                                        <h2>Hola, soy Marcos. También me llamo Makuaz.</h2>
-                                        <p>Me gradué como profesor de historia y geografía en 2011. Desde entonces, he trabajado de forma independiente en áreas medioambientales, desarrollo y análisis web. He participado en diversos cursos que abarcan temas como ventas, evaluación educativa, liderazgo de unidad técnico-pedagógica y neurociencias aplicadas a la educación. En la actualidad soy candidato al título de Ingeniería en Informática Multimedia de la universidad UNIACC y profesor ayudante en la misma institución.</p>
-                                        <p>Actualmente estoy diseñando en el equipo Next Energy UX de Google.</p>
-                                        <p>Antes de unirme a Google, hice prácticas en YouTube y Jet.com.</p>
-                                        <p>La Escuela de Diseño CMU escribió un <a href="#">breve artículo</a> sobre el premio al mérito IDSA.</p>
+                                        <h2>Hola, soy mi nombre es Marcos, pero tambien me conocen como MaKuaZ.</h2>
+                                        <p>Me gradué como profesor de historia y geografía en 2011 y posteriormente como ingeniero informatico multimedia. 
+                                        Siempre he trabajado de forma independiente en áreas medioambientales, desarrollo 
+                                        y análisis web. He participado en diversos cursos que abarcan temas como ventas, 
+                                        evaluación educativa, liderazgo de unidad técnico-pedagógica y neurociencias aplicadas a la educación.</p>
+                                        <p>Actualmente estoy diseñando con mi equipo de NeekWorld.</p>
+                                        
                                         <p>¡Me encantaría saber de ti! <a href="mailto:marcos@makuaz.com">marcos@makuaz.com</a></p>
                                     </div>
                                     <div class="col-lg-4">
-                                        <img src="assets/img/profile.jpg" alt="Marcos Makuaz" class="img-fluid">
+                                        <img src="assets/img/logo.png" alt="Marcos Makuaz" class="img-fluid">
                                     </div>
                                 </div>
                                 <div class="row mt-5">
                                     <div class="col-md-3">
                                         <h3>Educación</h3>
-                                        <p>Carnegie Mellon University<br>2014 - 2018</p>
-                                        <p>Licenciatura en Diseño Especializada en Diseño de Producto e Interacción Humano-Computadora.</p>
+                                        <p>Certificación desarrollo de aplicaciones frontend con framework vue</p>
+                                        <p>Licenciatura en ingenieria en informatica y multimedia - 2024</p>
+                                        <p>Licenciatura en Educación - 2011</p>
                                     </div>
-                                    <div class="col-md-3">
-                                        <h3>Experiencia</h3>
-                                        <p>Diseñador de interacción de Google<br>Agosto de 2018 - presente<br>Mountain View, CA</p>
-                                    </div>
+                                    
                                     <div class="col-md-3">
                                         <h3>Habilidades</h3>
-                                        <p>Diseño centrado en el usuario<br>Bocetos<br>Guión gráfico<br>Investigación de usuarios<br>Pruebas de usuarios<br>Diseño en el dispositivo (entradas, LED, hápticos, sonido, botones, carga)</p>
+                                        <p>Diseño centrado en el usuario<br>Comunicación efectiva<br>Investigación de usuarios<br>Desarrollo FrontEnd<br>Marketing digital<br>Desarrollo Multimedia<br>Desarrollo de Videojuegos<br>IA</p>
                                     </div>
                                     <div class="col-md-3">
-                                        <h3>Premios</h3>
-                                        <p>Premio al Mérito IDSA<br>Primavera 2018</p>
-                                        <p>Premio al Mérito de la Escuela de Diseño<br>Otoño 2015 - Primavera 2016</p>
-                                        <p>Lista de Decanos<br>Otoño 2014 - Primavera 2018</p>
+                                        <h3>Lenguajes</h3>
+                                        <p>Javascript</p>
+                                        <p>Java</p>
+                                        <p>Python</p>
+                                        <p>PHP</p>
+                                        <p>CSS BEM</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h3>Frameworks</h3>
+                                        <p>Design Thinking</p>
+                                        <p>Vue</p>
+                                        <p>Bootstrap</p>
+                                        <p>Jquery</p>
+                                        <p>SASS</p>
                                     </div>
                                 </div>
                             </div>
