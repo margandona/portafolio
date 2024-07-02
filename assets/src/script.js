@@ -2,8 +2,8 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
 
     $('#intro-text').on('click', function () {
-        $('body').toggleClass('night-mode');
-        applyNightMode();
+        $('body').toggleClass('colorblind-mode');
+        applyAccessibilityMode();
     });
 
     $('a[data-target]').on('click', function (e) {
@@ -22,8 +22,10 @@ $(document).ready(function () {
         } else {
             var sectionContent = getSectionContent(sectionId);
             $('#dynamic-sections').append(sectionContent);
-            applyNightMode(); // Aplicar night-mode si está activo
         }
+
+        // Aplicar el modo de accesibilidad si está activado
+        applyAccessibilityMode();
     }
 
     function getSectionContent(sectionId) {
@@ -163,6 +165,7 @@ $(document).ready(function () {
     Pero juntos, crean una danza única e inolvidable. Así que, en este gran escenario de la vida, 
     celebremos cada mente como una estrella brillante en nuestro ballet mental."</p>
 </div>
+
                         </div>
                     </section>`;
                 break;
@@ -434,21 +437,11 @@ $(document).ready(function () {
         return content;
     }
 
-    function applyNightMode() {
-        if ($('body').hasClass('night-mode')) {
-            $('#dynamic-sections .section').addClass('night-mode');
+    function applyAccessibilityMode() {
+        if ($('body').hasClass('colorblind-mode')) {
+            $('.section').addClass('colorblind-mode');
         } else {
-            $('#dynamic-sections .section').removeClass('night-mode');
+            $('.section').removeClass('colorblind-mode');
         }
     }
-
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-    // Aplicar night-mode a las secciones dinámicas al cargar si está activo
-    applyNightMode();
 });
