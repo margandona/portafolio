@@ -199,3 +199,145 @@ body {
         display: none;
     }
 }
+body {
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.section {
+    padding: 50px 0;
+    background: linear-gradient(135deg, #5b86e5, #36d1dc);
+    color: white;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card {
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 30px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 200px; /* Ajustar altura */
+    object-fit: cover; /* Ajustar imagen para que cubra el área */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.btn-primary {
+    background: #36d1dc;
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #5b86e5;
+}
+
+@media (max-width: 768px) {
+    .section .card {
+        margin-bottom: 30px;
+    }
+}
+
+.playground-section {
+    padding: 50px 0;
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: white;
+}
+
+.playground-section h3, .playground-section h4 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.playground-section p {
+    font-size: 1.2rem;
+}
+
+.carousel-item .card {
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item .card-body {
+    padding: 20px;
+}
+
+.carousel-item .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.carousel-item .card-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.carousel-item .btn-primary {
+    background: #36d1dc;
+    border: none;
+}
+
+.carousel-item .btn-primary:hover {
+    background: #5b86e5;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.about-section h3 {
+    margin-top: 0;
+}
+
+.text-center {
+    text-align: center;
+}
