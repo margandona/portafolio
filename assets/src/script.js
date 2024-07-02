@@ -22,10 +22,8 @@ $(document).ready(function () {
         } else {
             var sectionContent = getSectionContent(sectionId);
             $('#dynamic-sections').append(sectionContent);
+            applyAccessibilityMode();
         }
-
-        // Aplicar el modo de accesibilidad si está activado
-        applyAccessibilityMode();
     }
 
     function getSectionContent(sectionId) {
@@ -156,16 +154,15 @@ $(document).ready(function () {
                                     <span class="sr-only">Next</span>
                                 </a>
                             </div>
-                           <div class="mt-5 text-center">
-    <h1>La Danza de las Mentes</h1>
-    <h2>Explorando la Diversidad Cognitiva</h2>
-    <p>"Imagina que nuestras mentes son como un coro de bailarines. Algunos se deslizan con gracia, 
-    otros danzan al ritmo de su propia melodía. La diversidad cognitiva es la coreografía que une a 
-    todos. Algunos pasos son rápidos y precisos, mientras que otros son más lentos y sinceros. 
-    Pero juntos, crean una danza única e inolvidable. Así que, en este gran escenario de la vida, 
-    celebremos cada mente como una estrella brillante en nuestro ballet mental."</p>
-</div>
-
+                            <div class="mt-5 text-center">
+                                <h1>La Danza de las Mentes</h1>
+                                <h2>Explorando la Diversidad Cognitiva</h2>
+                                <p>"Imagina que nuestras mentes son como un coro de bailarines. Algunos se deslizan con gracia, 
+                                otros danzan al ritmo de su propia melodía. La diversidad cognitiva es la coreografía que une a 
+                                todos. Algunos pasos son rápidos y precisos, mientras que otros son más lentos y sinceros. 
+                                Pero juntos, crean una danza única e inolvidable. Así que, en este gran escenario de la vida, 
+                                celebremos cada mente como una estrella brillante en nuestro ballet mental."</p>
+                            </div>
                         </div>
                     </section>`;
                 break;
@@ -180,7 +177,6 @@ $(document).ready(function () {
                                     <p>“En los diversos capítulos de la vida, enfrentamos un torbellino de emociones. 
                                     En esos momentos cruciales, los videojuegos se convierten en mi refugio: 
                                     una fuente de entretenimiento, relajación, motivación e inspiración.”</p>
-                                    
                                     <h4 class="text-center">Te invito a explorar, crear, pero sobretodo a reflexionar</h4>
                                 </div>
                                 <div class="col-md-6">
@@ -323,7 +319,6 @@ $(document).ready(function () {
                                     <p>“En mi infancia, crecí rodeado de docentes, lo que me llevó a elegir la enseñanza como mi primera carrera. 
                                     Sin embargo, una vez dentro, me di cuenta de que muchos métodos estaban obsoletos. 
                                     Hoy en día, trabajo para automatizar y actualizar esos enfoques.”</p>
-                                    
                                     <h4 class="text-center">Te invito a explorar, crear, pero sobretodo a reflexionar</h4>
                                 </div>
                                 <div class="col-md-6">
@@ -337,8 +332,7 @@ $(document).ready(function () {
                                     </div>
                                 </div>
                             </div>
-                            <br>
-                            <div class="row">
+                            <div class="row mt-5">
                                 <div class="col-md-4">
                                     <div class="card">
                                         <img src="./assets/img/cardGame.png" class="card-img-top" alt="Proyecto 1">
@@ -439,9 +433,9 @@ $(document).ready(function () {
 
     function applyAccessibilityMode() {
         if ($('body').hasClass('colorblind-mode')) {
-            $('.section').addClass('colorblind-mode');
+            $('#dynamic-sections .section').addClass('colorblind-mode');
         } else {
-            $('.section').removeClass('colorblind-mode');
+            $('#dynamic-sections .section').removeClass('colorblind-mode');
         }
     }
 });
