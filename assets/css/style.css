@@ -248,6 +248,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     margin-bottom: 30px;
+    height: 100%; /* Para igualar la altura de todas las tarjetas */
 }
 
 .card:hover {
@@ -264,6 +265,9 @@ body {
 
 .card-body {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-title {
@@ -282,6 +286,12 @@ body {
     background: #36d1dc;
     border: none;
     transition: background 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary i {
+    margin-right: 5px;
 }
 
 .btn-primary:hover {
@@ -348,4 +358,71 @@ body {
 
 .text-center {
     text-align: center;
+}
+
+/* Accessibility Modes */
+.descanso-visual {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.daltonismo {
+    filter: grayscale(100%);
+}
+
+.normal {
+    color: #000;
+}
+
+/* Night Mode */
+.modo-nocturno {
+    background-color: #2e2e2e;
+    color: #cccccc;
+}
+
+/* Aplicar modo nocturno a cada sección */
+.header.modo-nocturno {
+    background: linear-gradient(135deg, #333, #444);
+    color: #cccccc;
+}
+
+.presentation.modo-nocturno {
+    background: linear-gradient(135deg, #333, #444);
+    color: #cccccc;
+}
+
+.about-section.modo-nocturno {
+    background: linear-gradient(135deg, #333, #444);
+    color: #cccccc;
+}
+
+.playground-section.modo-nocturno {
+    background: linear-gradient(135deg, #333, #444);
+    color: #cccccc;
+}
+
+/* Aplicar descanso visual a cada sección */
+.header.descanso-visual {
+    background: linear-gradient(135deg, #f7f7f7, #e2e2e2);
+    color: #333;
+}
+
+.presentation.descanso-visual {
+    background: linear-gradient(135deg, #f7f7f7, #e2e2e2);
+    color: #333;
+}
+
+.about-section.descanso-visual {
+    background: linear-gradient(135deg, #f7f7f7, #e2e2e2);
+    color: #333;
+}
+
+.playground-section.descanso-visual {
+    background: linear-gradient(135deg, #f7f7f7, #e2e2e2);
+    color: #333;
+}
+
+/* Button Styles */
+.btn {
+    margin: 5px 0;
 }

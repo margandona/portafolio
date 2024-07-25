@@ -13,10 +13,8 @@ $(document).ready(function () {
     });
 
     function showSection(sectionId) {
-        // Ocultar todas las secciones dinámicas
         $('#dynamic-sections .section').hide();
 
-        // Mostrar o crear la sección seleccionada
         if ($('#' + sectionId).length) {
             $('#' + sectionId).show();
         } else {
@@ -24,7 +22,6 @@ $(document).ready(function () {
             $('#dynamic-sections').append(sectionContent);
         }
 
-        // Aplicar el modo de accesibilidad si está activado
         applyAccessibilityMode();
     }
 
@@ -35,137 +32,60 @@ $(document).ready(function () {
                 content = `
                     <section class="section work-section" id="work">
                         <div class="container">
-                            <h2 class="section-title">Proyectos UX</h2>
+                            <h2 class="section-title">Accesibilidad y Ajustes</h2>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <h3>La experiencia del usuario es fundamental para alcanzar nuestros objetivos</h3>
-                                    <p>“Imagina que la experiencia del usuario es como un parque de diversiones. Los objetivos son los juegos emocionantes que queremos disfrutar. Pero si el camino hacia esos juegos está lleno de obstáculos, ¿qué pasa? ¡La fila para la montaña rusa se convierte en una maratón de obstáculos! Así que, amigos, asegurémonos de que nuestro parque de diversiones digital tenga toboganes suaves, carruseles veloces y, por supuesto, ¡alguna que otra fuente de chocolate!” 🎢🎡🍫”</p>
-                                </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="card">
-                                        <img src="./assets/img/pokedex2.png" class="card-img-top" alt="Proyecto 1">
                                         <div class="card-body">
-                                            <h5 class="card-title">Tarjeta del Playground</h5>
-                                            <p class="card-text">Descripción de la tarjeta de la sección de diversión.</p>
-                                            <a href="#" class="btn btn-primary">Leer más</a>
+                                            <h5 class="card-title">Modo de Accesibilidad Visual</h5>
+                                            <p class="card-text">Un modo que permite a los usuarios cambiar entre diferentes configuraciones visuales para mejorar la accesibilidad.</p>
+                                            <button id="btnDescansoVisual" class="btn btn-primary">
+                                                <i class="fas fa-eye"></i> Descanso Visual
+                                            </button>
+                                            <button id="btnDaltonismo" class="btn btn-primary">
+                                                <i class="fas fa-palette"></i> Daltonismo
+                                            </button>
+                                            <button id="btnNormal" class="btn btn-primary">
+                                                <i class="fas fa-sync"></i> Normal
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ajustes de Tamaño de Fuente y Espaciado</h5>
+                                            <p class="card-text">Permite a los usuarios ajustar el tamaño de la fuente y el espaciado entre líneas y párrafos para mejorar la legibilidad.</p>
+                                            <button id="btnAumentarFuente" class="btn btn-primary">
+                                                <i class="fas fa-plus"></i> Aumentar Fuente
+                                            </button>
+                                            <button id="btnDisminuirFuente" class="btn btn-primary">
+                                                <i class="fas fa-minus"></i> Disminuir Fuente
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Modo de Lectura Nocturna</h5>
+                                            <p class="card-text">Un modo nocturno para reducir la fatiga ocular durante la lectura en condiciones de poca luz.</p>
+                                            <button id="btnModoNocturno" class="btn btn-primary">
+                                                <i class="fas fa-moon"></i> Modo Nocturno
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                </ol>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 1">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Proyecto 1</h5>
-                                                        <p class="card-text">Descripción del proyecto 1.</p>
-                                                        <a href="#" class="btn btn-primary">Leer más</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 2">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Proyecto 2</h5>
-                                                        <p class="card-text">Descripción del proyecto 2.</p>
-                                                        <a href="#" class="btn btn-primary">Leer más</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 3">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Proyecto 3</h5>
-                                                        <p class="card-text">Descripción del proyecto 3.</p>
-                                                        <a href="#" class="btn btn-primary">Leer más</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 4">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Proyecto 4</h5>
-                                                        <p class="card-text">Descripción del proyecto 4.</p>
-                                                        <a href="#" class="btn btn-primary">Leer más</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 5">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Proyecto 5</h5>
-                                                        <p class="card-text">Descripción del proyecto 5.</p>
-                                                        <a href="#" class="btn btn-primary">Leer más</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 6">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Proyecto 6</h5>
-                                                        <p class="card-text">Descripción del proyecto 6.</p>
-                                                        <a href="#" class="btn btn-primary">Leer más</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 7">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Proyecto 7</h5>
-                                                        <p class="card-text">Descripción del proyecto 7.</p>
-                                                        <a href="#" class="btn btn-primary">Leer más</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="card">
-                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 8">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Proyecto 8</h5>
-                                                        <p class="card-text">Descripción del proyecto 8.</p>
-                                                        <a href="#" class="btn btn-primary">Leer más</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
+                            <div class="mt-5 text-center">
+                                <h1>La Danza de las Mentes</h1>
+                                <h2>Explorando la Diversidad Cognitiva</h2>
+                                <p>"Imagina que nuestras mentes son como un coro de bailarines. Algunos se deslizan con gracia, 
+                                otros danzan al ritmo de su propia melodía. La diversidad cognitiva es la coreografía que une a 
+                                todos. Algunos pasos son rápidos y precisos, mientras que otros son más lentos y sinceros. 
+                                Pero juntos, crean una danza única e inolvidable. Así que, en este gran escenario de la vida, 
+                                celebremos cada mente como una estrella brillante en nuestro ballet mental."</p>
                             </div>
-                           <div class="mt-5 text-center">
-    <h1>La Danza de las Mentes</h1>
-    <h2>Explorando la Diversidad Cognitiva</h2>
-    <p>"Imagina que nuestras mentes son como un coro de bailarines. Algunos se deslizan con gracia, 
-    otros danzan al ritmo de su propia melodía. La diversidad cognitiva es la coreografía que une a 
-    todos. Algunos pasos son rápidos y precisos, mientras que otros son más lentos y sinceros. 
-    Pero juntos, crean una danza única e inolvidable. Así que, en este gran escenario de la vida, 
-    celebremos cada mente como una estrella brillante en nuestro ballet mental."</p>
-</div>
-
                         </div>
                     </section>`;
                 break;
@@ -431,7 +351,8 @@ $(document).ready(function () {
                     </section>`;
                 break;
             case 'home':
-                $('#dynamic-sections .section').hide();
+                $('#dynamic-sections').empty();
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
                 return;
         }
         return content;
@@ -443,5 +364,36 @@ $(document).ready(function () {
         } else {
             $('.section').removeClass('colorblind-mode');
         }
+    }
+
+    // Modo de Accesibilidad Visual
+    $(document).on('click', '#btnDescansoVisual', function() {
+        $('body').removeClass('descanso-visual daltonismo modo-nocturno normal').addClass('descanso-visual');
+        toggleSectionsClass('descanso-visual');
+    });
+
+    $(document).on('click', '#btnDaltonismo', function() {
+        $('body').removeClass('descanso-visual daltonismo modo-nocturno normal').addClass('daltonismo');
+        toggleSectionsClass('daltonismo');
+    });
+
+    $(document).on('click', '#btnNormal', function() {
+        $('body').removeClass('descanso-visual daltonismo modo-nocturno normal').addClass('normal');
+        toggleSectionsClass('normal');
+    });
+
+    $(document).on('click', '#btnModoNocturno', function() {
+        $('body').toggleClass('modo-nocturno');
+        toggleSectionsClass('modo-nocturno');
+    });
+
+    function toggleSectionsClass(mode) {
+        const sections = document.querySelectorAll('.header, .presentation, .about-section, .playground-section');
+        sections.forEach((section) => {
+            section.classList.remove('descanso-visual', 'daltonismo', 'modo-nocturno', 'normal');
+            if (mode !== 'normal') {
+                section.classList.add(mode);
+            }
+        });
     }
 });
