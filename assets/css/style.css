@@ -366,6 +366,11 @@ body {
     color: #333;
 }
 
+/* Iconos de RRSS en modo descanso visual */
+.descanso-visual .presentation__links a i {
+    color: #000;
+}
+
 .daltonismo {
     filter: grayscale(100%);
 }
@@ -401,6 +406,16 @@ body {
     color: #cccccc;
 }
 
+.work-section.modo-nocturno {
+    background: linear-gradient(135deg, #333, #444);
+    color: #cccccc;
+}
+
+.education-section.modo-nocturno {
+    background: linear-gradient(135deg, #333, #444);
+    color: #cccccc;
+}
+
 /* Aplicar descanso visual a cada sección */
 .header.descanso-visual {
     background: linear-gradient(135deg, #f7f7f7, #e2e2e2);
@@ -421,6 +436,17 @@ body {
     background: linear-gradient(135deg, #f7f7f7, #e2e2e2);
     color: #333;
 }
+
+.work-section.descanso-visual {
+    background: linear-gradient(135deg, #f7f7f7, #e2e2e2);
+    color: #333;
+}
+
+.education-section.descanso-visual {
+    background: linear-gradient(135deg, #f7f7f7, #e2e2e2);
+    color: #333;
+}
+
 
 /* Button Styles */
 .btn {

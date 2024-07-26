@@ -20,9 +20,8 @@ $(document).ready(function () {
         } else {
             var sectionContent = getSectionContent(sectionId);
             $('#dynamic-sections').append(sectionContent);
+            applyAccessibilityMode();  // Aplicar los modos de accesibilidad a la nueva sección
         }
-
-        applyAccessibilityMode();
     }
 
     function getSectionContent(sectionId) {
@@ -364,21 +363,31 @@ $(document).ready(function () {
         } else {
             $('.section').removeClass('colorblind-mode');
         }
+        if ($('body').hasClass('descanso-visual')) {
+            $('.section').addClass('descanso-visual');
+        } else {
+            $('.section').removeClass('descanso-visual');
+        }
+        if ($('body').hasClass('modo-nocturno')) {
+            $('.section').addClass('modo-nocturno');
+        } else {
+            $('.section').removeClass('modo-nocturno');
+        }
     }
 
     // Modo de Accesibilidad Visual
     $(document).on('click', '#btnDescansoVisual', function() {
-        $('body').removeClass('descanso-visual daltonismo modo-nocturno normal').addClass('descanso-visual');
+        $('body').removeClass('daltonismo modo-nocturno normal').addClass('descanso-visual');
         toggleSectionsClass('descanso-visual');
     });
 
     $(document).on('click', '#btnDaltonismo', function() {
-        $('body').removeClass('descanso-visual daltonismo modo-nocturno normal').addClass('daltonismo');
+        $('body').removeClass('descanso-visual modo-nocturno normal').addClass('daltonismo');
         toggleSectionsClass('daltonismo');
     });
 
     $(document).on('click', '#btnNormal', function() {
-        $('body').removeClass('descanso-visual daltonismo modo-nocturno normal').addClass('normal');
+        $('body').removeClass('descanso-visual daltonismo modo-nocturno').addClass('normal');
         toggleSectionsClass('normal');
     });
 
@@ -387,8 +396,21 @@ $(document).ready(function () {
         toggleSectionsClass('modo-nocturno');
     });
 
+    // Ajustes de Tamaño de Fuente y Espaciado
+    $(document).on('click', '#btnAumentarFuente', function() {
+        $('body').css('font-size', function(i, value) {
+            return parseFloat(value) + 1 + 'px';
+        });
+    });
+
+    $(document).on('click', '#btnDisminuirFuente', function() {
+        $('body').css('font-size', function(i, value) {
+            return parseFloat(value) - 1 + 'px';
+        });
+    });
+
     function toggleSectionsClass(mode) {
-        const sections = document.querySelectorAll('.header, .presentation, .about-section, .playground-section');
+        const sections = document.querySelectorAll('.header, .presentation, .about-section, .playground-section, .work-section, .education-section');
         sections.forEach((section) => {
             section.classList.remove('descanso-visual', 'daltonismo', 'modo-nocturno', 'normal');
             if (mode !== 'normal') {
