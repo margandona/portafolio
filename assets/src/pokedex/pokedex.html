@@ -11,6 +11,11 @@
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f5f5f5;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .large-font {
+            font-size: 1.2em;
         }
 
         .pokedex-container {
@@ -301,6 +306,7 @@
             border-radius: 10px;
             padding: 10px;
             transition: max-height 0.3s;
+            display: none;
         }
 
         .pokedex__historial h3,
@@ -371,6 +377,30 @@
             background-color: #333;
             color: #fff;
         }
+
+        .options-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 50%;
+            transform: translateX(50%);
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+            width: 200px;
+            z-index: 1000;
+        }
+
+        .options-menu.visible {
+            display: block;
+        }
+
+        .options-menu button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -381,10 +411,13 @@
                     <div class="pokedex__top">
                         <div id="pokedex-circle" class="pokedex__circle blue"></div>
                         <div class="pokedex__lights">
-                            <div class="pokedex__light pokedex__light--blue" data-toggle="tooltip" title="Borrar pantalla"></div>
-                            <div class="pokedex__light pokedex__light--yellow" data-toggle="tooltip" title="Borrar pantalla"></div>
-                            <div class="pokedex__light pokedex__light--green" data-toggle="tooltip" title="Borrar pantalla"></div>
+                            <div class="pokedex__light pokedex__light--blue"></div>
+                            <div class="pokedex__light pokedex__light--yellow"></div>
+                            <div class="pokedex__light pokedex__light--green"></div>
                         </div>
+                        <button id="toggle-options" class="pokedex__button">
+                            <i class="fas fa-cog"></i>
+                        </button>
                     </div>
                     <div class="pokedex__screen">
                         <h2 id="pokemon-name" class="pokedex__nombre"></h2>
@@ -392,27 +425,51 @@
                         <div id="pokemon-placeholder" class="pokedex__placeholder"></div>
                     </div>
                     <div class="pokedex__buttons">
-                        <button id="btn-prev" class="pokedex__button pokedex__button--left" data-toggle="tooltip" title="Retroceder Pokémon">L</button>
-                        <button id="btn-next" class="pokedex__button pokedex__button--right" data-toggle="tooltip" title="Avanzar Pokémon">R</button>
+                        <button id="btn-prev" class="pokedex__button pokedex__button--left">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button id="btn-next" class="pokedex__button pokedex__button--right">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="pokedex__body">
                     <div class="pokedex__busqueda">
-                        <input id="search-input" type="text" class="form-control" placeholder="Buscar Pokémon por nombre, ID o tipo">
-                        <div id="suggestions" class="pokedex__sugerencias"></div>
-                        <button id="search-btn" class="btn btn-primary">Buscar</button>
+                        <input id="search-input" type="text" class="form-control" placeholder="Buscar Pokémon por nombre, ID o tipo" aria-label="Buscar Pokémon por nombre, ID o tipo">
+                        <div id="suggestions" class="pokedex__sugerencias" aria-live="polite"></div>
+                        <button id="search-btn" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
                     </div>
                     <div id="pokemon-info" class="pokedex__info"></div>
                 </div>
                 <div class="pokedex__menus">
-                    <button id="toggle-history" class="btn btn-secondary btn-menu">Mostrar/Ocultar Historial</button>
+                    <button id="toggle-history" class="btn btn-secondary btn-menu">
+                        <i class="fas fa-history"></i> Historial
+                    </button>
                     <div id="history" class="pokedex__historial"></div>
-                    <button id="toggle-favorites" class="btn btn-secondary btn-menu">Mostrar/Ocultar Favoritos</button>
+                    <button id="toggle-favorites" class="btn btn-secondary btn-menu">
+                        <i class="fas fa-star"></i> Favoritos
+                    </button>
                     <div id="favorites" class="pokedex__favoritos"></div>
-                    <button id="clear-data" class="btn btn-danger btn-menu">Borrar Datos Guardados</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="options-menu" class="options-menu">
+        <button id="increase-font" class="btn btn-primary">
+            <i class="fas fa-text-height"></i> Aumentar Letra
+        </button>
+        <button id="decrease-font" class="btn btn-primary">
+            <i class="fas fa-text-height"></i> Disminuir Letra
+        </button>
+        <button id="reset-settings" class="btn btn-danger">
+            <i class="fas fa-undo"></i> Restaurar
+        </button>
+        <button id="clear-data" class="btn btn-danger">
+            <i class="fas fa-trash"></i> Borrar Datos
+        </button>
     </div>
 
     <!-- Toasts -->
@@ -420,8 +477,8 @@
         <div id="toast-container" style="position: absolute; top: 10px; right: 10px;"></div>
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         var pokemonData = null;
@@ -433,10 +490,9 @@
         var mostrarMovimientos = false;
 
         document.addEventListener('DOMContentLoaded', function() {
-            var savedPokemon = JSON.parse(localStorage.getItem('currentPokemon'));
-            if (savedPokemon) {
-                mostrarPokemon(savedPokemon);
-            }
+            $('#pokemon-name').text('');
+            $('#pokemon-image').hide();
+            $('#pokemon-placeholder').show();
         });
 
         function guardarEstado(pokemon) {
@@ -503,12 +559,18 @@
                                 <ul class="pokedex__abilities">${abilities}</ul>
                             </div>
                             <div class="pokedex__info-item">
-                                <button class="btn btn-info" id="toggle-moves">Ver Movimientos</button>
+                                <button class="btn btn-info" id="toggle-moves">
+                                    <i class="fas fa-list"></i> Ver Movimientos
+                                </button>
                                 <ul class="pokedex__moves" style="display: none;">${moves}</ul>
                             </div>
                             <div class="pokedex__info-item">
-                                <button class="btn btn-warning" onclick="guardarFavorito(${pokemon.id})">Agregar a Favoritos</button>
-                                <button class="btn btn-danger" onclick="borrarFavorito(${pokemon.id})">Borrar de Favoritos</button>
+                                <button class="btn btn-warning" onclick="guardarFavorito(${pokemon.id})">
+                                    <i class="fas fa-star"></i> Agregar a Favoritos
+                                </button>
+                                <button class="btn btn-danger" onclick="borrarFavorito(${pokemon.id})">
+                                    <i class="fas fa-trash"></i> Borrar de Favoritos
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -520,6 +582,10 @@
                 $('.pokedex__moves').toggle(mostrarMovimientos);
                 $(this).text(mostrarMovimientos ? 'Ocultar Movimientos' : 'Ver Movimientos');
             });
+
+            // Limpiar el campo de búsqueda y ocultar sugerencias
+            $('#search-input').val('');
+            $('#suggestions').html('');
         }
 
         function capitalizarNombre(nombre) {
@@ -578,7 +644,9 @@
                     <span class="pokedex__types-list">
                         ${item.types.map(t => `<span class="${t.type.name}">${t.type.name}</span>`).join('')}
                     </span>
-                    <button onclick="borrarFavorito(${item.id})" class="btn btn-danger btn-sm">X</button>
+                    <button onclick="borrarFavorito(${item.id})" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </li>
             `).join('');
             $('#favorites').html('<ul>' + favoritosHtml + '</ul>');
@@ -646,6 +714,14 @@
             $('#suggestions').html('<ul>' + sugerenciasHtml + '</ul>');
         }
 
+        function toggleMenu(menuId) {
+            $('#' + menuId).toggleClass('visible');
+        }
+
+        function toggleClass(elementId, className) {
+            $('#' + elementId).toggleClass(className);
+        }
+
         $('#search-input').on('input', function() {
             var query = $(this).val().toLowerCase();
             buscarSugerencias(query);
@@ -678,12 +754,28 @@
             $('#favorites').toggle();
         });
 
+        $('#toggle-options').click(function() {
+            toggleMenu('options-menu');
+        });
+
         $('#clear-data').click(function() {
             borrarDatosGuardados();
         });
 
         $('.pokedex__light--blue, .pokedex__light--yellow, .pokedex__light--green').click(function() {
             limpiarPantalla();
+        });
+
+        $('#increase-font').click(function() {
+            $('body').addClass('large-font');
+        });
+
+        $('#decrease-font').click(function() {
+            $('body').removeClass('large-font');
+        });
+
+        $('#reset-settings').click(function() {
+            $('body').removeClass('large-font');
         });
 
         setInterval(cambiarColorCirculo, 500);

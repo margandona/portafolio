@@ -20,7 +20,7 @@ $(document).ready(function () {
         } else {
             var sectionContent = getSectionContent(sectionId);
             $('#dynamic-sections').append(sectionContent);
-            applyAccessibilityMode();
+            applyAccessibilityMode();  // Aplicar los modos de accesibilidad a la nueva sección
         }
     }
 
@@ -95,51 +95,6 @@ $(document).ready(function () {
                             <h2 class="section-title">Patio de Juegos</h2>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>De los Juguetes a los Videojuegos: Un Viaje de Transformación</h3>
-                                    <p>“Desde mi infancia, los juguetes y la naturaleza fueron mis compañeros de juego, 
-                                    alimentando mi imaginación y curiosidad. Sin embargo, fue el descubrimiento del mundo 
-                                    de los videojuegos y la informática lo que verdaderamente transformó mi vida. 
-                                    Los videojuegos no solo se convirtieron en una fuente de entretenimiento, sino en un 
-                                    motor de inspiración y desarrollo personal. Con la ayuda de mi imaginación, 
-                                    he logrado convertir esta pasión en un camino de creación y aprendizaje constante.”</p>
-                                    
-                                    <h4 class="text-center">Descubre cómo los sueños de la infancia pueden convertirse en realidades sorprendentes  </h4>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <img src="./assets/img/poke.png" class="card-img-top" alt="Proyecto 1">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Consumo de la PokeApi</h5>
-                                            <p class="card-text">¿Quién no ha deseado tener una de esas maravillas del anime japonés Pokémon? Aunque existen muchos 
-                                            artefactos similares, desarrollarlo utilizando mis habilidades e imaginación ha hecho de esto algo más que diversión.
-                                                Este juego se inspira en un juguete de mi infancia, deseando que pudiera hacer todo lo que este juego ofrece. 
-                                                Te invito a probar un prototipo que he creado, diseñado para ser lo más parecido a la realidad, usando tu celular 
-                                                o computadora.
-                                             </p>
-                                            
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" data-reflection="reflexion5">Jugar con la Dex</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <section class="section playground-section" id="playground">
-                        <div class="container">
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 2">
-                                        <div class="card-body">
-                                            <h5 class="card-title">GoshtPetz: Juego de simulación de vida</h5>
-                                            <p class="card-text">Un prototipo de juego basado en una historia original, 
-                                            diseñado para ofrecerte momentos de imaginación y diversión sin límites.</p>
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" data-reflection="reflexion5">Prueba y diviertete</a>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
                                     <h3>Mi inspiración viene del mundo de los videojuegos</h3>
                                     <p>“En los diversos capítulos de la vida, enfrentamos un torbellino de emociones. 
                                     En esos momentos cruciales, los videojuegos se convierten en mi refugio: 
@@ -147,8 +102,121 @@ $(document).ready(function () {
                                     
                                     <h4 class="text-center">Te invito a explorar, crear, pero sobretodo a reflexionar</h4>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <img src="./assets/img/poke.png" class="card-img-top" alt="Proyecto 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tarjeta del Playground</h5>
+                                            <p class="card-text">Descripción de la tarjeta de la sección de diversión.</p>
+                                            <a href="#" class="btn btn-primary">Leer más</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            
+                            <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 1">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Proyecto 1</h5>
+                                                        <p class="card-text">Descripción del proyecto 1.</p>
+                                                        <a href="#" class="btn btn-primary">Leer más</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 2">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Proyecto 2</h5>
+                                                        <p class="card-text">Descripción del proyecto 2.</p>
+                                                        <a href="#" class="btn btn-primary">Leer más</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 3">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Proyecto 3</h5>
+                                                        <p class="card-text">Descripción del proyecto 3.</p>
+                                                        <a href="#" class="btn btn-primary">Leer más</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 4">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Proyecto 4</h5>
+                                                        <p class="card-text">Descripción del proyecto 4.</p>
+                                                        <a href="#" class="btn btn-primary">Leer más</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 5">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Proyecto 5</h5>
+                                                        <p class="card-text">Descripción del proyecto 5.</p>
+                                                        <a href="#" class="btn btn-primary">Leer más</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 6">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Proyecto 6</h5>
+                                                        <p class="card-text">Descripción del proyecto 6.</p>
+                                                        <a href="#" class="btn btn-primary">Leer más</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 7">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Proyecto 7</h5>
+                                                        <p class="card-text">Descripción del proyecto 7.</p>
+                                                        <a href="#" class="btn btn-primary">Leer más</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Proyecto 8</h5>
+                                                        <p class="card-text">Descripción del proyecto 8.</p>
+                                                        <a href="#" class="btn btn-primary">Leer más</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
                             <div class="mt-5 text-center">
                                 <h1>Hagamos volar la imaginación</h1>
                                 <h2>Modelemos nuestros sueños</h2>
@@ -171,29 +239,19 @@ $(document).ready(function () {
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Una de mis más grandes pasiones se asocian con la educación</h3>
-                                    <p>“Durante mi infancia, crecí rodeado de docentes, lo que me llevó a elegir la enseñanza como mi primera carrera. 
-                                    Estar en un ambiente educativo desde pequeño influyó profundamente en mis decisiones y aspiraciones profesionales.<br><br>
-
-                                        Sin embargo, una vez inmerso en el campo, me di cuenta de que muchos métodos eran obsoletos y necesitaban una 
-                                        renovación urgente. La enseñanza tradicional no estaba cumpliendo con las demandas y necesidades de los 
-                                        estudiantes modernos, lo que me llevó a buscar soluciones innovadoras.<br><br>
-
-                                        Actualmente, me dedico a automatizar y actualizar esos enfoques, buscando mejorar la educación a través de la 
-                                        innovación tecnológica. Mi objetivo es transformar la manera en que enseñamos y aprendemos, adaptándola a las 
-                                        necesidades del siglo XXI.”</p>
+                                    <p>“En mi infancia, crecí rodeado de docentes, lo que me llevó a elegir la enseñanza como mi primera carrera. 
+                                    Sin embargo, una vez dentro, me di cuenta de que muchos métodos estaban obsoletos. 
+                                    Hoy en día, trabajo para automatizar y actualizar esos enfoques.”</p>
                                     
                                     <h4 class="text-center">Te invito a explorar, crear, pero sobretodo a reflexionar</h4>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card">
-                                        <img src="./assets/img/mistralymaturana.webp" class="card-img-top" alt="Proyecto 1">
+                                        <img src="./assets/img/pokedex2.png" class="card-img-top" alt="Proyecto 1">
                                         <div class="card-body">
-                                            <h5 class="card-title">La educación en linea es el nuevo paradigma</h5>
-                                            <p class="card-text">Chilenos de renombre como Gabriela Mistral, quien defendía la educación con amor, 
-                                            y Humberto Maturana, cuyas teorías se basan en las neurociencias, han tenido razón en sus planteamientos. 
-                                            Sin embargo, estos visionarios no podían prever cómo la enseñanza se transformaría en nuestros tiempos, 
-                                            adaptándose a nuevas metodologías y tecnologías.</p>
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" data-reflection="reflexion1">Leer más</a>
+                                            <h5 class="card-title">Tarjeta del Playground</h5>
+                                            <p class="card-text">Descripción de la tarjeta de la sección de diversión.</p>
+                                            <a href="#" class="btn btn-primary">Leer más</a>
                                         </div>
                                     </div>
                                 </div>
@@ -202,41 +260,38 @@ $(document).ready(function () {
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="card">
-                                        <img src="./assets/img/aprenderjugar.webp" class="card-img-top" alt="Proyecto 1">
+                                        <img src="./assets/img/cardGame.png" class="card-img-top" alt="Proyecto 1">
                                         <div class="card-body">
-                                            <h5 class="card-title">Aprender jugando</h5>
-                                            <p class="card-text">Convertir el aprendizaje en una experiencia divertida y relevante promueve una asimilación más efectiva de los conocimientos, 
-                                            mejorando la comprensión y el interés de los estudiantes en el proceso educativo.</p>
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" data-reflection="reflexion2">Leer más</a>
+                                            <h5 class="card-title">Proyecto de Educación 1</h5>
+                                            <p class="card-text">Descripción breve del proyecto de educación 1.</p>
+                                            <a href="#" class="btn btn-primary">Leer más</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="card">
-                                        <img src="./assets/img/aprendercrear.webp" class="card-img-top" alt="Proyecto 2">
+                                        <img src="./assets/img/pet.png" class="card-img-top" alt="Proyecto 2">
                                         <div class="card-body">
-                                            <h5 class="card-title">Aprender Creando</h5>
-                                            <p class="card-text">Aprender mediante la práctica y la experiencia facilita una asimilación más efectiva y duradera de los conocimientos, 
-                                            asegurando que los estudiantes retengan y comprendan mejor lo que han aprendido.</p>
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" data-reflection="reflexion3">Leer más</a>
+                                            <h5 class="card-title">Proyecto de Educación 2</h5>
+                                            <p class="card-text">Descripción breve del proyecto de educación 2.</p>
+                                            <a href="#" class="btn btn-primary">Leer más</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="card">
-                                        <img src="./assets/img/aprenderaprender.webp" class="card-img-top" alt="Proyecto 3">
+                                        <img src="./assets/img/pokedex.png" class="card-img-top" alt="Proyecto 3">
                                         <div class="card-body">
-                                            <h5 class="card-title">Aprendiendo a aprender</h5>
-                                            <p class="card-text">Desarrollar la habilidad de aprender a aprender en un entorno tecnológico capacita a las personas para adaptarse y evolucionar continuamente, 
-                                            asimilando nuevos conocimientos y habilidades de manera efectiva y autónoma.</p>
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" data-reflection="reflexion4">Leer más</a>
+                                            <h5 class="card-title">Proyecto de Educación 3</h5>
+                                            <p class="card-text">Descripción breve del proyecto de educación 3.</p>
+                                            <a href="#" class="btn btn-primary">Leer más</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="mt-5 text-center">
-                                <h1>Adaptar las metodologías educativas tanto a los tiempos como a la tecnología es la llave al futuro.</h1>
-                                <h2>Tomando lo mas importante, como lo que dice Gabriela Mistral o Humberto Maturana.</h2>
+                                <h1>El Amor en la Educación</h1>
+                                <h2>La Emoción Fundamental</h2>
                                 <p>"Amar educa", afirmaba Humberto Maturana. Cuando creamos un espacio que acoge, 
                                 escucha y permite la presencia del otro, los niños se transforman en personas reflexivas, 
                                 autónomas y responsables. El amor y la ternura son esenciales para que la educación florezca.</p>
@@ -264,17 +319,15 @@ $(document).ready(function () {
                                 </div>
                             </div>
                             <div class="row mt-5">
-                                
                                 <div class="col-md-3">
-                                    <h3>Habilidades</h3>
-                                    <p>Diseño centrado en el usuario<br>Comunicación efectiva<br>Investigación de usuarios<br>Desarrollo Full Stack<br>Marketing digital<br>Desarrollo Multimedia<br>Desarrollo de Videojuegos<br>Automatizaciones IA</p>
+                                    <h3>Educación</h3>
+                                    <p>Certificación desarrollo de aplicaciones frontend con framework vue</p>
+                                    <p>Licenciatura en ingeniería en informática y multimedia - 2024</p>
+                                    <p>Licenciatura en Educación - 2011</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <h3>Tecnologías</h3>
-                                    <p>Oracle Data Modeler</p>
-                                    <p>Firebase</p>
-                                    <p>Scrum by Trello</p>
-                                    <p>VSCode</p>
+                                    <h3>Habilidades</h3>
+                                    <p>Diseño centrado en el usuario<br>Comunicación efectiva<br>Investigación de usuarios<br>Desarrollo FrontEnd<br>Marketing digital<br>Desarrollo Multimedia<br>Desarrollo de Videojuegos<br>IA</p>
                                 </div>
                                 <div class="col-md-3">
                                     <h3>Lenguajes</h3>
@@ -288,7 +341,6 @@ $(document).ready(function () {
                                     <h3>Frameworks</h3>
                                     <p>Design Thinking</p>
                                     <p>Vue</p>
-                                    <p>Ionic by Angular</p>
                                     <p>Bootstrap</p>
                                     <p>Jquery</p>
                                     <p>SASS</p>
@@ -324,35 +376,35 @@ $(document).ready(function () {
     }
 
     // Modo de Accesibilidad Visual
-    $(document).on('click', '#btnDescansoVisual', function () {
+    $(document).on('click', '#btnDescansoVisual', function() {
         $('body').removeClass('daltonismo modo-nocturno normal').addClass('descanso-visual');
         toggleSectionsClass('descanso-visual');
     });
 
-    $(document).on('click', '#btnDaltonismo', function () {
+    $(document).on('click', '#btnDaltonismo', function() {
         $('body').removeClass('descanso-visual modo-nocturno normal').addClass('daltonismo');
         toggleSectionsClass('daltonismo');
     });
 
-    $(document).on('click', '#btnNormal', function () {
+    $(document).on('click', '#btnNormal', function() {
         $('body').removeClass('descanso-visual daltonismo modo-nocturno').addClass('normal');
         toggleSectionsClass('normal');
     });
 
-    $(document).on('click', '#btnModoNocturno', function () {
+    $(document).on('click', '#btnModoNocturno', function() {
         $('body').toggleClass('modo-nocturno');
         toggleSectionsClass('modo-nocturno');
     });
 
     // Ajustes de Tamaño de Fuente y Espaciado
-    $(document).on('click', '#btnAumentarFuente', function () {
-        $('body').css('font-size', function (i, value) {
+    $(document).on('click', '#btnAumentarFuente', function() {
+        $('body').css('font-size', function(i, value) {
             return parseFloat(value) + 1 + 'px';
         });
     });
 
-    $(document).on('click', '#btnDisminuirFuente', function () {
-        $('body').css('font-size', function (i, value) {
+    $(document).on('click', '#btnDisminuirFuente', function() {
+        $('body').css('font-size', function(i, value) {
             return parseFloat(value) - 1 + 'px';
         });
     });
@@ -366,20 +418,4 @@ $(document).ready(function () {
             }
         });
     }
-
-    // Modal reflections
-    const reflections = {
-        reflexion1: '¿Cómo crees que Gabriela Mistral y Humberto Maturana habrían adaptado sus enfoques educativos a las metodologías y tecnologías modernas para seguir mejorando la enseñanza?',
-        reflexion2: '¿Cómo podemos diseñar experiencias educativas que sean tanto divertidas como relevantes para maximizar la efectividad del aprendizaje y mantener el interés de los estudiantes?',
-        reflexion3: '¿Cómo podemos integrar más oportunidades de práctica y experiencias reales en el aprendizaje para garantizar una asimilación más efectiva y duradera de los conocimientos?',
-        reflexion4: '¿Cómo podemos diseñar entornos tecnológicos que fomenten y faciliten el desarrollo de la habilidad de aprender a aprender, asegurando que las personas puedan adaptarse y evolucionar de manera autónoma?',
-        reflexion5: 'Estoy trabajando para que pronto interactues con esta sección.'
-    };
-
-    $('#educationModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var reflectionKey = button.data('reflection');
-        var modal = $(this);
-        modal.find('.modal-body').text(reflections[reflectionKey]);
-    });
 });

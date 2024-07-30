@@ -447,6 +447,10 @@ body {
     color: #333;
 }
 
+/* Links en modo normal */
+.normal .presentation__link {
+    color: white;
+}
 
 /* Button Styles */
 .btn {
