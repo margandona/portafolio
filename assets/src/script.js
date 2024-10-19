@@ -17,10 +17,12 @@ $(document).ready(function () {
 
         if ($('#' + sectionId).length) {
             $('#' + sectionId).show();
+            scrollToSection('#' + sectionId);
         } else {
             var sectionContent = getSectionContent(sectionId);
             $('#dynamic-sections').append(sectionContent);
             applyAccessibilityMode();
+            scrollToSection('#' + sectionId);
         }
     }
 
@@ -117,7 +119,7 @@ $(document).ready(function () {
                                                 o computadora.
                                              </p>
                                             
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" data-reflection="reflexion5">Jugar con la Dex</a>
+                                            <a href="assets/src/pokedex/pokedex.html" target="_blank" class="btn btn-primary" >Jugar con la Dex</a>
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +136,7 @@ $(document).ready(function () {
                                             <h5 class="card-title">GoshtPetz: Juego de simulación de vida</h5>
                                             <p class="card-text">Un prototipo de juego basado en una historia original, 
                                             diseñado para ofrecerte momentos de imaginación y diversión sin límites.</p>
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" data-reflection="reflexion5">Prueba y diviertete</a>
+                                            <a href="assets/src/mascotaV3.5/index.html" class="btn btn-primary">Prueba y diviertete</a>
                                             
                                         </div>
                                     </div>
@@ -382,4 +384,10 @@ $(document).ready(function () {
         var modal = $(this);
         modal.find('.modal-body').text(reflections[reflectionKey]);
     });
+
+    function scrollToSection(sectionId) {
+        $('html, body').animate({
+            scrollTop: $(sectionId).offset().top
+        }, 800);
+    }
 });
