@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Alegreya+SC:wght@400;700&family=Nixie+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Radio Frecuencia Interactiva</title>
+    <style>
+        body {
+            font-family: 'Alegreya Sans', sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+            background-color: #f1f0f0;
+            color: #6a6a6a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .radio-player {
+            background-color: #d9d9bd;
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .radio-player__title {
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3A4F52;
+        }
+
+        .radio-player__banner {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .radio-player__progress-container {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .radio-player__progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #C3C9CC;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .radio-player__progress-bar-fill {
+            height: 100%;
+            background-color: #f0cb12;
+            border-radius: 5px;
+            width: 0;
+        }
+
+        .radio-player__controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .radio-player__control-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .radio-player__volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .radio-player__volume-slider {
+            width: 120px;
+        }
+
+        .radio-player__button {
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .radio-player__button--play {
+            background-color: #3A4F52;
+            color: #ffffff;
+        }
+
+        .radio-player__button--play:hover {
+            background-color: #4290ae;
+        }
+
+        .radio-player__button--pause {
+            background-color: #161515;
+            color: #ffffff;
+        }
+
+        .radio-player__button--pause:hover {
+            background-color: #f0cb12;
+        }
+
+        .radio-player__volume-icon {
+            color: #3A4F52;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .radio-player__visualizer-container {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .radio-player__visualizer {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+
+        .radio-player__bar {
+            width: 5px;
+            height: 20px;
+            background: linear-gradient(45deg, #f90598, #28a745, #dc3545);
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scaleY(0.5);
+            }
+            50% {
+                transform: scaleY(1);
+            }
+        }
+
+        a {
+            color: #f0cb12;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #4290ae;
+        }
+
+        @media (max-width: 576px) {
+            .radio-player {
+                padding: 15px;
+            }
+
+            .radio-player__volume-slider {
+                width: 80px;
+            }
+
+            .radio-player__button {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="radio-player">
+        <div class="radio-player__title"><img src="bannerFA.jpeg" alt="" class="radio-player__banner"></div>
+        <div class="radio-player__progress-container">
+            <div class="radio-player__progress-bar">
+                <div id="progressBarFill" class="radio-player__progress-bar-fill"></div>
+            </div>
+        </div>
+        <div class="radio-player__controls">
+            <div class="radio-player__control-buttons">
+                <button id="playButton" class="radio-player__button radio-player__button--play"><i class="fas fa-play"></i></button>
+                <button id="pauseButton" class="radio-player__button radio-player__button--pause"><i class="fas fa-pause"></i></button>
+            </div>
+            <div class="radio-player__volume-control">
+                <i id="volumeIcon" class="fas fa-volume-up radio-player__volume-icon"></i>
+                <input type="range" id="volumeSlider" class="radio-player__volume-slider" min="0" max="100" value="50">
+            </div>
+        </div>
+        <div class="radio-player__visualizer-container">
+            <div class="radio-player__visualizer" id="visualizer">
+                <!-- Visualizer bars will be added dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var audio = new Audio('https://s57.radiolize.com/radio/8090/radio.mp3');
+            var lastVolume = 0.5;
+            audio.volume = lastVolume;
+            var isMuted = false;
+
+            $('#playButton').on('click', function () {
+                audio.play();
+                $('#visualizer').show();
+            });
+
+            $('#pauseButton').on('click', function () {
+                audio.pause();
+                $('#visualizer').hide();
+            });
+
+            $('#volumeSlider').on('input', function () {
+                var volume = $(this).val() / 100;
+                audio.volume = volume;
+                if (volume === 0) {
+                    isMuted = true;
+                    $('#volumeIcon').removeClass('fa-volume-up').addClass('fa-volume-mute');
+                } else {
+                    isMuted = false;
+                    lastVolume = volume;
+                    $('#volumeIcon').removeClass('fa-volume-mute').addClass('fa-volume-up');
+                }
+            });
+
+            $('#volumeIcon').on('click', function () {
+                if (isMuted) {
+                    audio.volume = lastVolume;
+                    $('#volumeSlider').val(lastVolume * 100);
+                    isMuted = false;
+                    $('#volumeIcon').removeClass('fa-volume-mute').addClass('fa-volume-up');
+                } else {
+                    lastVolume = audio.volume;
+                    audio.volume = 0;
+                    $('#volumeSlider').val(0);
+                    isMuted = true;
+                    $('#volumeIcon').removeClass('fa-volume-up').addClass('fa-volume-mute');
+                }
+            });
+
+            audio.addEventListener('timeupdate', function () {
+                var progress = (audio.currentTime / audio.duration) * 100;
+                $('#progressBarFill').css('width', progress + '%');
+            });
+
+            // Create visualizer bars
+            for (var i = 0; i < 20; i++) {
+                $('#visualizer').append('<div class="radio-player__bar"></div>');
+            }
+
+            // Animate bars to mimic music rhythm
+            setInterval(function () {
+                if (!audio.paused) {
+                    $('.radio-player__bar').each(function () {
+                        var height = Math.random() * 100;
+                        $(this).css('height', height + 'px');
+                    });
+                } else {
+                    $('.radio-player__bar').css('height', '20px');
+                }
+            }, 200);
+
+            // Hide visualizer initially
+            $('#visualizer').hide();
+        });
+    </script>
+</body>
+
+</html>

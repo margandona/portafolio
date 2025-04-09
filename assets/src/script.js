@@ -258,7 +258,7 @@ $(document).ready(function () {
                                     Siempre he trabajado de forma independiente en áreas medioambientales, desarrollo 
                                     y análisis web. He participado en diversos cursos que abarcan temas como ventas, 
                                     evaluación educativa, liderazgo de unidad técnico-pedagógica y neurociencias aplicadas a la educación.</p>
-                                    <p>Actualmente estoy diseñando con mi equipo de NeekWorld.</p>
+                                    <p>Actualmente estoy diseñando nuevas formas de ver la tecnología.</p>
                                     <p>¡Me encantaría saber de ti! <a href="mailto:marcos@makuaz.com">marcos@makuaz.com</a></p>
                                 </div>
                                 <div class="col-lg-4">
@@ -284,15 +284,15 @@ $(document).ready(function () {
                                     <p>Java</p>
                                     <p>Python</p>
                                     <p>PHP</p>
-                                    <p>CSS BEM</p>
+                                    
                                 </div>
                                 <div class="col-md-3">
                                     <h3>Frameworks</h3>
-                                    <p>Design Thinking</p>
+                                    <p>Node.js</p>
                                     <p>Vue</p>
                                     <p>Ionic by Angular</p>
                                     <p>Bootstrap</p>
-                                    <p>Jquery</p>
+                                    <p>Design Thinking</p>
                                     <p>SASS</p>
                                 </div>
                             </div>
