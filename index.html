@@ -11,24 +11,22 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <link rel="apple-touch-icon" sizes="57x57" href="assets/img/icon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="assets/img/icon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="assets/img/icon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="assets/img/icon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="assets/img/icon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="assets/img/icon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="assets/img/icon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="assets/img/icon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="assets/img/icon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="assets/img/icon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/icon/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="assets/img/icon/ms-icon-144x144.png">
-<meta name="theme-color" content="#5b86e5">
-
-    
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/img/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/img/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#5b86e5">
 </head>
 <body>
     <!--SECCION NAVBAR-->
@@ -41,25 +39,28 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item nav__item">
-                    <a class="nav-link" href="#home" data-target="home">Inicio</a>
+                    <a class="nav-link" href="#home" data-target="home"><i class="fas fa-home"></i> Inicio</a>
                 </li>
                 <li class="nav-item nav__item">
-                    <a class="nav-link" href="#work" data-target="work">Accesibilidad</a>
+                    <a class="nav-link" href="#work" data-target="work"><i class="fas fa-universal-access"></i> Accesibilidad</a>
                 </li>
                 <li class="nav-item nav__item">
-                    <a class="nav-link" href="#playground" data-target="playground">Diversión</a>
+                    <a class="nav-link" href="#playground" data-target="playground"><i class="fas fa-smile"></i> Diversión</a>
                 </li>
                 <li class="nav-item nav__item">
-                    <a class="nav-link" href="#educacion" data-target="educacion">Educación</a>
+                    <a class="nav-link" href="#educacion" data-target="educacion"><i class="fas fa-graduation-cap"></i> Educación</a>
                 </li>
                 <li class="nav-item nav__item">
-                    <a class="nav-link" href="#comunicaciones" id="comunicaciones-link">Comunicaciones</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#pokedexModal"><i class="fas fa-gamepad"></i> Pokedex</a>
                 </li>
                 <li class="nav-item nav__item">
-                    <a class="nav-link" href="#about" data-target="about">Acerca de</a>
+                    <a class="nav-link" href="#comunicaciones" id="comunicaciones-link"><i class="fas fa-broadcast-tower"></i> Radio</a>
                 </li>
                 <li class="nav-item nav__item">
-                    <a class="nav-link" href="#rrss" >RRSS</a>
+                    <a class="nav-link" href="#about" data-target="about"><i class="fas fa-user"></i> Acerca de</a>
+                </li>
+                <li class="nav-item nav__item">
+                    <a class="nav-link" href="#rrss"><i class="fas fa-share-alt"></i> RRSS</a>
                 </li>
             </ul>
         </div>
@@ -93,7 +94,6 @@
                 <a href="#educacion" data-target="educacion" class="presentation__link">Contribución en Educación</a>
             </p>
         </div>
-
         
         <div class="presentation__image-container" id="rrss">
             <img src="assets/img/img2.jpg" alt="Marcos Argandoña" class="presentation__image">
@@ -131,6 +131,38 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Modal para Pokedex -->
+    <div class="modal fade" id="pokedexModal" tabindex="-1" role="dialog" aria-labelledby="pokedexModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pokedexModalLabel">Pokedex</h5>
+                    <div class="ml-auto">
+                        <button type="button" class="btn btn-sm btn-secondary mr-2" id="minimizePokedexBtn">
+                            <i class="fas fa-window-minimize"></i>
+                        </button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <iframe id="pokedexIframe" src="assets/src/pokedex/pokedex.html" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pokedex minimizada -->
+    <div id="minimizedPokedex" class="minimized-pokedex" style="display: none;">
+        <div class="minimized-pokedex-content">
+            <span class="minimized-pokedex-title">Pokedex</span>
+        </div>
+        <button id="maximizePokedexBtn" class="minimize-maximize-btn">
+            <i class="fas fa-expand-alt"></i>
+        </button>
     </div>
 
     <!-- Radio Modal -->
@@ -190,11 +222,45 @@
         </button>
     </div>
 
+    <!-- Modal para GoshtPetz -->
+    <div class="modal fade" id="ghostpetzModal" tabindex="-1" role="dialog" aria-labelledby="ghostpetzModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ghostpetzModalLabel">GoshtPetz: Juego de simulación de vida</h5>
+                    <div class="ml-auto">
+                        <button type="button" class="btn btn-sm btn-secondary mr-2" id="minimizeGhostpetzBtn">
+                            <i class="fas fa-window-minimize"></i>
+                        </button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <iframe id="ghostpetzIframe" src="assets/src/mascotaV3.5/index.html" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GoshtPetz minimizado -->
+    <div id="minimizedGhostpetz" class="minimized-ghostpetz" style="display: none;">
+        <div class="minimized-ghostpetz-content">
+            <span class="minimized-ghostpetz-title">GoshtPetz</span>
+        </div>
+        <button id="maximizeGhostpetzBtn" class="minimize-maximize-btn">
+            <i class="fas fa-expand-alt"></i>
+        </button>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="assets/src/script.js"></script>
     <script src="assets/src/radio.js"></script>
+    <script src="assets/src/pokedex-modal.js"></script>
+    <script src="assets/src/ghostpetz-modal.js"></script>
     <script>
         function scrollToTop() {
             window.scrollTo({

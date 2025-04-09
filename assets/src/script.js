@@ -119,7 +119,7 @@ $(document).ready(function () {
                                                 o computadora.
                                              </p>
                                             
-                                            <a href="assets/src/pokedex/pokedex.html" target="_blank" class="btn btn-primary" >Jugar con la Dex</a>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#pokedexModal">Jugar con la Dex</a>
                                         </div>
                                     </div>
                                 </div>
@@ -136,8 +136,7 @@ $(document).ready(function () {
                                             <h5 class="card-title">GoshtPetz: Juego de simulación de vida</h5>
                                             <p class="card-text">Un prototipo de juego basado en una historia original, 
                                             diseñado para ofrecerte momentos de imaginación y diversión sin límites.</p>
-                                            <a href="assets/src/mascotaV3.5/index.html" class="btn btn-primary">Prueba y diviertete</a>
-                                            
+                                            <a href="assets/src/mascotaV3.5/index.html" class="btn btn-primary" id="btnGoshtPetz" target="_blank">Prueba y diviertete</a>
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +162,28 @@ $(document).ready(function () {
                                 epopeya de nuestras aspiraciones, y cada hilo entrelazado es un paso hacia la grandeza."</p>
                             </div>
                         </div>
-                    </section>`;
+                    </section>
+
+                    <!-- Compatibility Modal -->
+                    <div class="modal fade" id="compatibilityModal" tabindex="-1" role="dialog" aria-labelledby="compatibilityModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="compatibilityModalLabel">Dispositivo no compatible</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lo sentimos, GoshtPetz solo está disponible para tablets y computadoras debido a requisitos técnicos y de interfaz.</p>
+                                    <p>Por favor, intenta acceder desde un dispositivo con una pantalla más grande para disfrutar de la experiencia completa.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Entendido</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
                 break;
             case 'educacion':
                 content = `
@@ -390,4 +410,34 @@ $(document).ready(function () {
             scrollTop: $(sectionId).offset().top
         }, 800);
     }
+
+    // Check if device is large enough for GoshtPetz
+    function isLargeDevice() {
+        return $(window).width() >= 768; // Tablets and desktops (Bootstrap md breakpoint)
+    }
+
+    // Handler for GoshtPetz button
+    $(document).on('click', '#btnGoshtPetz', function(e) {
+        e.preventDefault(); // Always prevent default
+        
+        if (!isLargeDevice()) {
+            $('#compatibilityModal').modal('show');
+        } else {
+            $('#ghostpetzModal').modal('show');
+        }
+    });
+
+    // Check if device is large enough for GoshtPetz
+    function isLargeDevice() {
+        return $(window).width() >= 768; // Tablets and desktops (Bootstrap md breakpoint)
+    }
+
+    // Handler for GoshtPetz button
+    $(document).on('click', '#btnGoshtPetz', function(e) {
+        if (!isLargeDevice()) {
+            e.preventDefault();
+            $('#compatibilityModal').modal('show');
+        }
+        // On large devices, default link behavior works normally
+    });
 });
