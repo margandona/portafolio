@@ -215,7 +215,7 @@ $(document).ready(function () {
                                             y Humberto Maturana, cuyas teorías se basan en las neurociencias, han tenido razón en sus planteamientos. 
                                             Sin embargo, estos visionarios no podían prever cómo la enseñanza se transformaría en nuestros tiempos, 
                                             adaptándose a nuevas metodologías y tecnologías.</p>
-                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" data-reflection="reflexion1">Leer más</a>
+                                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#figmaPrototypeModal">Leer más</a>
                                         </div>
                                     </div>
                                 </div>
@@ -262,6 +262,38 @@ $(document).ready(function () {
                                 <p>"Amar educa", afirmaba Humberto Maturana. Cuando creamos un espacio que acoge, 
                                 escucha y permite la presencia del otro, los niños se transforman en personas reflexivas, 
                                 autónomas y responsables. El amor y la ternura son esenciales para que la educación florezca.</p>
+                            </div>
+                        
+                        <!-- Figma Prototype Modal -->
+                        <div class="modal fade" id="figmaPrototypeModal" tabindex="-1" role="dialog" aria-labelledby="figmaPrototypeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="figmaPrototypeModalLabel">Prototipo de Proyecto de Educación Virtual</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" style="position: relative; min-height: 500px;">
+                                        <div class="figma-loading-container" id="figmaLoadingContainer">
+                                            <div class="figma-loading">
+                                                <div class="figma-loader"><div></div><div></div><div></div><div></div></div>
+                                                <div class="figma-loading-text">Cargando prototipo...</div>
+                                            </div>
+                                        </div>
+                                        <iframe 
+                                            id="figmaPrototypeIframe"
+                                            style="border: 1px solid rgba(0, 0, 0, 0.1); opacity: 0; transition: opacity 0.5s ease;" 
+                                            width="100%" 
+                                            height="500" 
+                                            src="https://www.figma.com/proto/obrv3qczH3QcqHAvODPtdW/Untitled?node-id=0-1&amp;scaling=scale-down" 
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>`;
@@ -439,5 +471,172 @@ $(document).ready(function () {
             $('#compatibilityModal').modal('show');
         }
         // On large devices, default link behavior works normally
+    });
+
+    $(document).on('shown.bs.modal', '#figmaPrototypeModal', function() {
+        const iframe = document.getElementById('figmaPrototypeIframe');
+        const loadingContainer = document.getElementById('figmaLoadingContainer');
+        
+        iframe.onload = function() {
+            // Hide loading animation and show iframe with a fade-in effect
+            setTimeout(function() {
+                loadingContainer.style.display = 'none';
+                iframe.style.opacity = 1;
+            }, 1000); // Wait a second after iframe is loaded to ensure content is visible
+        };
+    });
+
+    // Auto-close navbar when clicking on links in mobile view
+    $('.navbar-nav>li>a').on('click', function(){
+        if ($('.navbar-toggler').is(':visible')) {
+            $('.navbar-collapse').collapse('hide');
+        }
+    });
+
+    // Logo animations
+    const logoElement = $('.header__logo');
+    let rotateTimeout;
+
+    // Function to start periodic logo rotation
+    function startLogoRotation() {
+        // Initial rotation after 3 seconds
+        rotateTimeout = setTimeout(function rotateLogo() {
+            logoElement.addClass('header__logo-rotate');
+            
+            // Remove the class after the animation completes
+            setTimeout(function() {
+                logoElement.removeClass('header__logo-rotate');
+                
+                // Schedule the next rotation (every 10 seconds)
+                rotateTimeout = setTimeout(rotateLogo, 10000);
+            }, 3000);
+        }, 3000);
+    }
+    
+    // Start the rotation animation cycle
+    startLogoRotation();
+    
+    // Add click effect to header logo
+    logoElement.on('click', function() {
+        // Clear any ongoing rotation to prevent animation conflicts
+        clearTimeout(rotateTimeout);
+        $(this).removeClass('header__logo-rotate');
+        
+        // Apply click animation
+        $(this).addClass('header__logo-click');
+        
+        // Remove the class after animation completes and restart rotation
+        setTimeout(() => {
+            $(this).removeClass('header__logo-click');
+            startLogoRotation();
+        }, 500);
+    });
+
+    // Navbar logo animation
+    const navbarLogo = $('.navbar img');
+    navbarLogo.on('click', function() {
+        $(this).addClass('logo-click');
+        
+        // Remove the class after animation completes
+        setTimeout(() => {
+            $(this).removeClass('logo-click');
+        }, 500);
+    });
+
+    // Header logo animation
+    const headerLogo = $('.header img');
+    headerLogo.on('click', function() {
+        $(this).addClass('logo-click');
+        
+        // Remove the class after animation completes
+        setTimeout(() => {
+            $(this).removeClass('logo-click');
+        }, 500);
+    });
+
+    // Presentation section animations
+    const profileImage = $('.presentation__image');
+    let imageAnimationTimeout;
+
+    // Automatic animation for profile image
+    function startImageAnimation() {
+        clearTimeout(imageAnimationTimeout);
+        
+        imageAnimationTimeout = setTimeout(function animateImage() {
+            // Choose random animation
+            const animations = ['pulse', 'rotate'];
+            const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+            
+            // Clear previous animations and apply new one
+            profileImage.removeClass('pulse rotate');
+            profileImage.addClass(randomAnimation);
+            
+            // Remove class when animation completes
+            setTimeout(() => {
+                profileImage.removeClass(randomAnimation);
+                
+                // Schedule next animation (between 5-15 seconds)
+                const nextDelay = 5000 + Math.random() * 10000;
+                imageAnimationTimeout = setTimeout(animateImage, nextDelay);
+            }, randomAnimation === 'pulse' ? 2000 : 5000);
+        }, 3000); // Start first animation after 3 seconds
+    }
+    
+    // Start automatic animations
+    startImageAnimation();
+    
+    // Handle click on profile image
+    profileImage.on('click', function() {
+        // Clear automatic animations
+        clearTimeout(imageAnimationTimeout);
+        $(this).removeClass('pulse rotate');
+        
+        // Apply click effect
+        $(this).addClass('clicked');
+        
+        // Remove click effect and restart automatic animations
+        setTimeout(() => {
+            $(this).removeClass('clicked');
+            startImageAnimation();
+        }, 700);
+    });
+
+    // Navbar brand animation (MaKuaZ text)
+    const navbarBrand = $('.navbar-brand');
+    let navbarBrandRotateTimeout;
+
+    // Function to start periodic navbar brand rotation
+    function startNavbarBrandRotation() {
+        // Initial rotation after 7 seconds (staggered from main logo)
+        navbarBrandRotateTimeout = setTimeout(function rotateBrand() {
+            navbarBrand.addClass('navbar-brand-rotate');
+            
+            // Remove the class after the animation completes
+            setTimeout(function() {
+                navbarBrand.removeClass('navbar-brand-rotate');
+                
+                // Schedule the next rotation (every 15 seconds)
+                navbarBrandRotateTimeout = setTimeout(rotateBrand, 15000);
+            }, 3000);
+        }, 7000); // Start first animation after 7 seconds
+    }
+    
+    // Start the rotation animation cycle for navbar brand
+    startNavbarBrandRotation();
+    
+    // Add click effect to navbar brand
+    navbarBrand.on('click', function() {
+        // Clear any ongoing rotation to prevent animation conflicts
+        clearTimeout(navbarBrandRotateTimeout);
+        $(this).removeClass('navbar-brand-rotate');
+        
+        // Apply click animation
+        $(this).addClass('navbar-brand-click');
+        
+        // Remove the class after animation completes and restart rotation
+        setTimeout(() => {
+            $(this).removeClass('navbar-brand-click');
+            startNavbarBrandRotation();
+        }, 500);
     });
 });

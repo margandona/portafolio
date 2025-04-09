@@ -18,6 +18,72 @@ body {
 .header__logo {
     font-size: 5rem;
     font-family: 'Lobster', cursive;
+    transition: transform 0.3s ease;
+}
+
+.header__logo-rotate {
+    animation: logoRotate 3s ease-in-out infinite;
+}
+
+.header__logo-click {
+    animation: logoClickEffect 0.5s ease;
+}
+
+@keyframes logoRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes logoClickEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Header logo image animations */
+.header img {
+    max-width: 120px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.header img:hover {
+    transform: rotate(360deg);
+}
+
+.header img.logo-click {
+    animation: headerLogoClick 0.5s ease;
+}
+
+@keyframes headerLogoClick {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .header__text {
@@ -48,6 +114,53 @@ body {
 
 .nav__item {
     margin: 0 15px;
+}
+
+/* Navbar icon animation */
+.nav-item i {
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover i {
+    transform: rotate(360deg);
+}
+
+.navbar img {
+    transition: transform 0.3s ease;
+}
+
+.navbar img:hover {
+    transform: rotate(360deg);
+}
+
+.navbar img.logo-click {
+    animation: navLogoClick 0.5s ease;
+}
+
+@keyframes navLogoClick {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Navbar brand animation (MaKuaZ text) */
+.navbar-brand {
+    transition: transform 0.3s ease;
+    font-family: 'Lobster', cursive;
+}
+
+.navbar-brand.navbar-brand-rotate {
+    animation: logoRotate 3s ease-in-out infinite;
+}
+
+.navbar-brand.navbar-brand-click {
+    animation: logoClickEffect 0.5s ease;
 }
 
 .tooltip-inner {
@@ -90,10 +203,19 @@ body {
     color: white;
     font-size: 1.5rem;
     transition: color 0.3s;
+    display: inline-block;
+    position: relative;
+    transform-origin: center;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .presentation__links a:hover {
     color: #ddd;
+    transform: scale(1.3);
+}
+
+.presentation__links a:active {
+    transform: scale(0.9);
 }
 
 .presentation__image {
@@ -101,6 +223,74 @@ body {
     border-radius: 50%;
     display: block;
     margin: 0 auto;
+    transition: all 0.5s ease;
+    position: relative;
+    transform-origin: center;
+}
+
+.presentation__image:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.presentation__image.clicked {
+    animation: imageClickEffect 0.7s ease;
+}
+
+.presentation__image.pulse {
+    animation: imagePulse 2s ease infinite;
+}
+
+.presentation__image.rotate {
+    animation: imageRotate 5s ease;
+}
+
+@keyframes imageClickEffect {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0.95);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes imagePulse {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(1.03);
+        filter: brightness(1.1);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes imageRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 /* Added styles for presentation links */
@@ -889,4 +1079,128 @@ body {
         right: 10px;
         padding: 5px 10px;
     }
+}
+
+/* Figma Prototype Modal Styles */
+#figmaPrototypeModal .modal-content {
+    background-color: #ffffff;
+}
+
+#figmaPrototypeModal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#figmaPrototypeModal .modal-title {
+    color: #000000;
+    font-weight: bold;
+}
+
+#figmaPrototypeModal .modal-header .close {
+    color: #000000;
+}
+
+#figmaPrototypeModal .modal-body {
+    background-color: #ffffff;
+    padding: 0;
+}
+
+#figmaPrototypeModal .modal-footer {
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+#figmaPrototypeModal .btn-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+#figmaPrototypeModal .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Loading Animation for Figma Prototype */
+.figma-loading-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+.figma-loader {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.figma-loader div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #5b86e5;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.figma-loader div:nth-child(1) {
+    left: 8px;
+    animation: figma-loader1 0.6s infinite;
+}
+
+.figma-loader div:nth-child(2) {
+    left: 8px;
+    animation: figma-loader2 0.6s infinite;
+}
+
+.figma-loader div:nth-child(3) {
+    left: 32px;
+    animation: figma-loader2 0.6s infinite;
+}
+
+.figma-loader div:nth-child(4) {
+    left: 56px;
+    animation: figma-loader3 0.6s infinite;
+}
+
+@keyframes figma-loader1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes figma-loader2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+@keyframes figma-loader3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+.figma-loading-text {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    font-weight: bold;
 }
