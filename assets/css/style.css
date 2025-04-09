@@ -103,6 +103,19 @@ body {
     margin: 0 auto;
 }
 
+/* Added styles for presentation links */
+.presentation__link {
+    color: white;
+    text-decoration: none;
+}
+
+.presentation__link:hover, 
+.presentation__link:visited, 
+.presentation__link:active {
+    color: white;
+    text-decoration: underline;
+}
+
 .scroll-up {
     position: fixed;
     bottom: 20px;
@@ -455,4 +468,214 @@ body {
 /* Button Styles */
 .btn {
     margin: 5px 0;
+}
+
+/* Radio Player Styles */
+.radio-player {
+    border-radius: 15px;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.radio-player__title {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.radio-player__progress-container {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.radio-player__progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #5b86e5;
+    border-radius: 5px;
+    position: relative;
+}
+
+.radio-player__progress-bar-fill {
+    height: 100%;
+    background-color: #36d1dc;
+    border-radius: 5px;
+    width: 0;
+}
+
+.radio-player__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.radio-player__control-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.radio-player__volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.radio-player__volume-slider {
+    width: 120px;
+}
+
+.radio-player__button {
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio-player__button--play {
+    background-color: #36d1dc;
+    color: #fff;
+}
+
+.radio-player__button--play:hover {
+    background-color: #5b86e5;
+}
+
+.radio-player__button--pause {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.radio-player__button--pause:hover {
+    background-color: #c0392b;
+}
+
+.radio-player__volume-icon {
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.radio-player__visualizer-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.radio-player__visualizer {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.radio-player__bar {
+    width: 5px;
+    height: 20px;
+    background: linear-gradient(45deg, #f90598, #28a745, #dc3545);
+    animation: bounce 1s ease infinite;
+}
+
+/* Minimized Radio Player */
+.minimized-radio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 300px;
+}
+
+.minimized-radio-content {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.minimized-radio-title {
+    font-weight: bold;
+    color: white;
+    margin-right: 15px;
+}
+
+.minimized-radio-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.minimized-radio-controls .radio-player__button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    font-size: 0.8rem;
+}
+
+.minimize-maximize-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scaleY(0.5);
+    }
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+@media (max-width: 576px) {
+    .minimized-radio-player {
+        bottom: 10px;
+        right: 10px;
+        max-width: 220px;
+    }
+    
+    .minimized-radio-title {
+        font-size: 0.9rem;
+    }
+}
+
+/* Radio Modal Styling */
+.radio-modal-content {
+    background: linear-gradient(135deg, #5b86e5, #36d1dc);
+    border: none;
+}
+
+.radio-modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.radio-modal-header .close {
+    color: white;
+    opacity: 0.8;
+}
+
+.radio-modal-header .close:hover {
+    opacity: 1;
+}
+
+.radio-modal-body {
+    background: rgba(0, 0, 0, 0.1);
 }
