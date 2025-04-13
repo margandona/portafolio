@@ -457,20 +457,7 @@ $(document).ready(function () {
         } else {
             $('#ghostpetzModal').modal('show');
         }
-    });
-
-    // Check if device is large enough for GoshtPetz
-    function isLargeDevice() {
-        return $(window).width() >= 768; // Tablets and desktops (Bootstrap md breakpoint)
-    }
-
-    // Handler for GoshtPetz button
-    $(document).on('click', '#btnGoshtPetz', function(e) {
-        if (!isLargeDevice()) {
-            e.preventDefault();
-            $('#compatibilityModal').modal('show');
-        }
-        // On large devices, default link behavior works normally
+        return false; // Ensure no redirection happens
     });
 
     $(document).on('shown.bs.modal', '#figmaPrototypeModal', function() {
@@ -639,4 +626,22 @@ $(document).ready(function () {
             startNavbarBrandRotation();
         }, 500);
     });
+
+    // Handle viewport scaling for very narrow devices
+    function adjustViewportForNarrowDevices() {
+        const screenWidth = window.innerWidth;
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        
+        if (screenWidth < 320) {
+            // For ultra-narrow screens, ensure content fits by adjusting the viewport
+            viewportMeta.setAttribute('content', 'width=320, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86');
+        } else {
+            // Reset to default for larger screens
+            viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        }
+    }
+    
+    // Run on page load and resize
+    adjustViewportForNarrowDevices();
+    $(window).on('resize', adjustViewportForNarrowDevices);
 });

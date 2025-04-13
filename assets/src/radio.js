@@ -83,16 +83,20 @@ $(document).ready(function() {
         $('#progressBarFill').css('width', progress + '%');
     });
     
-    // Minimize radio modal
-    $('#minimizeRadioBtn').on('click', function() {
+    // Improve minimize radio modal functionality
+    $('#minimizeRadioBtn').off('click').on('click', function() {
         $('#radioModal').modal('hide');
-        $('#minimizedRadioPlayer').fadeIn();
+        setTimeout(function() {
+            $('#minimizedRadioPlayer').fadeIn();
+        }, 300);
     });
     
-    // Maximize radio modal
-    $('#maximizeRadioBtn').on('click', function() {
+    // Improve maximize radio modal functionality
+    $('#maximizeRadioBtn').off('click').on('click', function() {
         $('#minimizedRadioPlayer').hide();
-        $('#radioModal').modal('show');
+        setTimeout(function() {
+            $('#radioModal').modal('show');
+        }, 100);
     });
     
     // Close button handling - properly close and stop the radio
